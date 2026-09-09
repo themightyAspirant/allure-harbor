@@ -14,10 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Static hosting of generated reports at `/reports/{id}/`
 - ZIP slip, zip bomb, and upload size protections
 - Docker Compose stack with Allure CLI, JRE, and optional Nginx
+- MIT license
 
 ### Changed
 
 - Open all HTTP endpoints to anyone who can reach the host; access control is expected at the network layer
+- Describe the project as self-hosted and warn against exposing it on the public internet
 
 ### Fixed
 

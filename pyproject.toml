@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Upload Allure results and share generated HTML reports over HTTP."
 readme = "README.md"
 requires-python = ">=3.12"
+license = { file = "LICENSE" }
 dependencies = [
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.32.0",

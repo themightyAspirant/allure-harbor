@@ -1,8 +1,8 @@
 # Allure Harbor
 
-Internal FastAPI service that accepts a ZIP of Allure results, generates a static HTML report, and serves it over HTTP so QA teams can share a URL instead of files.
+Self-hosted FastAPI service that accepts a ZIP of Allure results, generates a static HTML report, and serves it over HTTP so QA teams can share a URL instead of files.
 
-Anyone who can reach the VM (or other host) can upload, list, delete, and view reports. There is no API key. Lock access at the network layer (VPN, firewall, or private subnet).
+There is no login or API key. Anyone who can reach the host can upload, list, delete, and view reports. Do not expose this service on the public internet. Restrict access with a VPN, firewall, private subnet, or an authenticating reverse proxy.
 
 Do not use `allure serve`. This service runs `allure generate` and hosts the output.
 
@@ -113,3 +113,7 @@ pytest --cov=app --cov-report=html
 ruff check .
 mypy app/
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
