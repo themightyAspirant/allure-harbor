@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    environment:
+      ALLURE_HARBOR_DATA_DIR: /data
+      ALLURE_HARBOR_MAX_UPLOAD_MB: ${ALLURE_HARBOR_MAX_UPLOAD_MB:-200}
+      ALLURE_HARBOR_PUBLIC_BASE_URL: ${ALLURE_HARBOR_PUBLIC_BASE_URL:-http://localhost:8000}
+      ALLURE_HARBOR_ALLURE_BIN: /usr/local/bin/allure
+    volumes:
+      - ./data:/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
